@@ -1,0 +1,48 @@
+<ion-navbar *navbar valegreen>
+  <ion-buttons start>
+    <button (click)="cancel()">
+      <ion-icon name = "close"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-title>Lançamentos</ion-title>
+</ion-navbar>
+
+<ion-content padding class="modal-lancamento">
+<ion-list>
+  <ion-item>
+    <ion-label stacked>Descrição</ion-label>
+    <ion-input type="text" [(ngModel)] ="lancamento.desricao" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Valor</ion-label>
+    <ion-input type="number" [(ngModel)] ="lancamento.valor" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>data</ion-label>
+    <ion-input type="date" [(ngModel)] ="lancamento.data" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Entrada/Saída</ion-label>
+    <ion-select [(ngModel)] ="lancamento.entradaSaida" >
+      <ion-option value="entrada">Entrada</ion-option>
+      <ion-option value="saida">Saída</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Contas</ion-label>
+    <ion-select type = "text "[(ngModel)] ="lancamento.listContas" >
+      <ion-option ngFor = "#item of lancamento.listContas" value ="{{item.descricao}}">
+        {{item.descricao}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Baixado</ion-label>
+    <ion-checkbox [(ngModel)] ="lancamento.baixado" ></ion-checkbox>
+  </ion-item>
+
+</ion-list>
+</ion-content>
